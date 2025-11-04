@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body>
+    <header>
+        <h1><a href="/">My Blog</a></h1>
+    </header>
+    
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <footer>
+      <p>&copy; 2025 Flask + Markdown Blog.</p>
+    </footer>
+</body>
+</html>

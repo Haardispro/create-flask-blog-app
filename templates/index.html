@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Home - My Blog{% endblock %}
+
+{% block content %}
+    {% if posts %}
+        <ul class="post-list">
+            {% for post in posts %}
+            <li class="post-item">
+                <h2><a href="{{ url_for('post', slug=post.slug) }}">{{ post.title }}</a></h2>
+                <div class="post-meta">{{ post.date.strftime('%B %d, %Y') }}</div>
+                <p class="post-excerpt">{{ post.excerpt }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="post-content">
+            <h2>No posts yet</h2>
+            <p>Create your first post by adding a markdown file to the <code>posts/</code> directory!</p>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - My Blog{% endblock %}
+
+{% block content %}
+    <a href="{{ url_for('index') }}" class="back-link">← Back to all posts</a>
+    
+    <article class="post-content">
+        <h1>{{ post.title }}</h1>
+        <div class="post-meta">
+            By {{ post.author }} on {{ post.date.strftime('%B %d, %Y') }}
+        </div>
+        <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #eee;">
+        {{ post.content | safe }}
+    </article>
+{% endblock %}
